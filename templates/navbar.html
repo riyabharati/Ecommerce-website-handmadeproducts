@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <a class="navbar-brand" href="#">Web Development</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item ">
+                </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="/products">Products <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item {{activate_Student}}">
+            <a class="nav-link" href="/products/getStudent">Student (Basic)</a>
+            </li>
+            <li class="nav-item {{activate_personMF}}">
+                <a class="nav-link" href="/products/getPersonMF">Person (ModelForm)</a>
+            </li>
+            <li class="nav-item {{activate_file}}">
+                <a class="nav-link" href="/products/getFile">File (Basic)</a>
+            </li>
+            <li class="nav-item {{activate_FileMF}}">
+                <a class="nav-link" href="/products/getFileMF">File (ModelForm)</a>
+            </li>
+            <li class="nav-item {{activate_reporterMF}}">
+                <a class="nav-link" href="/products/getReporterMF">Reporter</a>
+            </li>
+            <li class="nav-item {{activate_articleMF}}">
+                <a class="nav-link" href="/products/getArticleMF">Article</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item {{activate_fileMF}}">
+                <a class="btn btn-danger btn-sm mx-2 d-flex mr-auto" href="/logout">Logout</a>
+            </li>
+            <li class="nav-item {{activate_fileMF}}">
+                <a class="btn btn-info btn-sm mx-2 d-flex mr-auto" href="/products/password_change">Change Password</a>
+            </li>
+            <li class="nav-item {{activate_fileMF}}">
+                <a class="btn btn-info btn-sm mx-2 d-flex mr-auto" href="/profile">Profile</a>
+            </li>
+            {% else %}
+            <li class="nav-item {{activate_fileMF}}">
+                <a class="btn btn-primary btn-sm mx-2" href="/">Login</a>
+            </li>
+            <li class="nav-item {{activate_fileMF}}">
+                <a class="btn btn-warning btn-sm mx-2" href="/register">Register</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

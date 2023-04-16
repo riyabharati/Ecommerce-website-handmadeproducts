@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block banner_slider %}
+
+
+
+</section>
+<!--Banner Slider-->
+
+ <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/promo-banner2.jpg' %}" class="d-block w-100" alt="..."> 
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/promo-banner1.jpg.' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/banner3.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div> 
+<!-- End Banner Slider -->
+{% endblock banner_slider %}
+
+{% block main-content %}
+<!-- 1st Product Slider -->
+<div class="m-3">
+ <h2>Painting</h2>
+ <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider1">
+ {% for painting  in paintings %} 
+  <a href="{% url 'product-detail' painting.id %}" class="btn"><div class="item"><img src="{{painting.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{painting.name}}</span><br>
+  <del class="fs-5">Price:Rs ,{{painting.selling_price}}</del><span class="fs-5">Sale Price: Rs,{{painting.discounted_price}}</span></div></a>
+ {% endfor %} 
+</div>
+</div>
+
+<!-- 2nd Product Slider -->
+<div class="mx-3">
+ <h2>Lovecard</h2>
+ <!-- Slider 2 -->
+ <div class="owl-carousel" id="slider2">
+  {% for lovecard in lovecards %} 
+  <a href="{% url 'product-detail' lovecard.id %}" class="btn"><div class="item"><img src="{{lovecard.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{lovecard.name}}</span><br>
+  <del class="fs-5">Price:Rs ,{{lovecard.selling_price}}</del><span class="fs-5"> Sale Price: Rs,{{lovecard.discounted_price}}</span></div></a>
+  {% endfor %}
+ </div>
+</div>
+<!-- End 2nd Product Slider -->
+
+<!-- 3rd Product Slider -->
+<div class="m-3">
+  <h2>SisterGift</h2>
+  <!-- Slider 3 -->
+  <div class="owl-carousel" id="slider3">
+   {% for sistergift in sistergifts %} 
+   <a href="{% url 'product-detail' sistergift.id %}" class="btn"><div class="item"><img src="{{sistergift.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{sistergift.name}}</span><br>
+    <del class="fs-5">Price:Rs ,{{sistergift.selling_price}}</del><span class="fs-5"> Sale Price: Rs,{{sistergift.discounted_price}}</span></div></a>
+   {% endfor %}
+  </div>
+</div>
+
+<!-- 4th Product Slider -->
+<div class="m-3">
+  <h2>Birthdaycard</h2>
+  <!-- Slider 4 -->
+  <div class="owl-carousel" id="slider3">
+   {% for birthdaycard in birthdaycards %} 
+   <a href="{% url 'product-detail' birthdaycard.id %}" class="btn"><div class="item"><img src="{{birthdaycard.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{birthdaycard.name}}</span><br>
+    <del class="fs-5">Price:Rs ,{{birthdaycard.selling_price}}</del><span class="fs-5"> Sale Price: Rs,{{birthdaycard.discounted_price}}</span></div></a>
+   {% endfor %}
+  </div>
+</div>
+ <!-- End 4th Product Slider -->
+ 
+
+{% endblock main-content %}
+
